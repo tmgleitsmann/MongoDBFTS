@@ -17,7 +17,8 @@ class SelectPage extends React.Component{
         this.state = {
             autocompleteText:"",
             fuzzymatchText:"",
-            wildcardText:""
+            wildcardText:"",
+            querySent:false
         }
     }
     
@@ -41,8 +42,9 @@ class SelectPage extends React.Component{
         e.preventDefault();
         //determine whether autocomplete, fuzzymatching or wildcard is desired search.
         //Persist state in redux before querying MongoDB & Redirecting page. 
+        this.setState( () => ({ querySent:true }));
         if(value == "Autocomplete" && this.state.autocompleteText.length > 0){
-            console.log(playerNameState);
+            
             if(playerNameState != this.state.autocompleteText && playerNameState.length > this.state.autocompleteText.length){
                 /* CHANGE THE STATE OF THE AUTOCOMPLETETEXT TO SHOW UPDATED NAME */
                 this.props.resetAttributes;
@@ -120,6 +122,8 @@ class SelectPage extends React.Component{
                             {this.props.players.map((player, index) => {
                                 return <div onClick={this.playerSelect.bind(this, player)} key={index}><Player key={player._id.$oid} {...player}/></div>
                             })}
+
+                            {this.state.querySent && this.props.players.length == 0 ? <div><h1>No Players Available</h1></div>:<div></div>}
                         </div>
                     </div>
                 </div>
