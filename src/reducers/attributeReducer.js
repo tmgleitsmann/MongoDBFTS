@@ -14,6 +14,7 @@ const DEFAULT_STATE = {
     playerName:'',
     searchType:'',
     playerPayload:[],
+    position:'',
     error:undefined
 }
 

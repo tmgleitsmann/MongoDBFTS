@@ -12,7 +12,8 @@ class Attributes extends React.Component{
             minOverall:1,
             maxOverall:99,
             nation:'',
-            nationExclude:''
+            nationExclude:'',
+            position:''
             // minPace:1,
             // maxPace:99,
             // minShooting:1,
@@ -41,6 +42,12 @@ class Attributes extends React.Component{
                 nationExclude:nationValue
             });
         }
+    }
+
+    onPositionSelect = (value) => {
+        this.setState({
+            position:value
+        });
     }
 
     onSliderChange = (attr, value) => {
@@ -220,6 +227,44 @@ class Attributes extends React.Component{
                         <a className="dropdown-item" onClick={this.onNationSelect.bind(this, "Mexico", "Exclude")}>Mexico</a>
                         <a className="dropdown-item" onClick={this.onNationSelect.bind(this, "United States", "Exclude")}>United States</a>
                     </div>
+                </div>
+
+                <br />
+                <div className="dropdown">
+                    <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {this.state.position.length < 1 ? 'Positions' : `${this.state.position}`}
+                    </button>
+                    <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "ST")}>ST</a>
+                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "RS")}>RS</a>
+                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "LS")}>LS</a>
+                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "RW")}>RW</a>
+                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "LW")}>LW</a>
+                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "RF")}>RF</a>
+                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "LF")}>LF</a>
+                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "RM")}>RM</a>
+                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "LM")}>LM</a>
+                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "CAM")}>CAM</a>
+                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "CM")}>CM</a>
+                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "RCM")}>RCM</a>
+                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "LCM")}>LCM</a>
+                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "CDM")}>CDM</a>
+                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "LDM")}>LDM</a>
+                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "RDM")}>RDM</a>
+                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "LWB")}>LWB</a>
+                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "RWB")}>RWB</a>
+                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "LB")}>LB</a>
+                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "RB")}>RB</a>
+                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "LCB")}>LCB</a>
+                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "RCB")}>RCB</a>
+                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "CB")}>CB</a>
+                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "GK")}>GK</a>
+                    </div>
+                </div>
+
+                <br />
+                <div>
+                    <img style={{"maxWidth":"75%", "maxHeight":"75%"}} src="../images/mbappe.png" />
                 </div>
 
             </div>

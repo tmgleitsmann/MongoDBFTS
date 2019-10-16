@@ -9,6 +9,7 @@ export const modifyAttributes = (playerName='', searchType='', attributes={}) =>
     let minimumOverall = '';
     let nationSelect = '';
     let nationExclude = '';
+    let positionSelect = '';
 
     if(attributes.nationExclude.length > 0){
         nationExclude = `&natex=${attributes.nationExclude}`;
@@ -21,11 +22,15 @@ export const modifyAttributes = (playerName='', searchType='', attributes={}) =>
     if(attributes.minOverall > 1){
         minimumOverall = `&over=${attributes.minOverall}`;
     }
+
+    if(attributes.position.length > 0){
+        positionSelect = `&pos=${attributes.position}`;
+    }
     
     return(dispatch) => {
         if(searchType=='Autocomplete'){
             return axios
-            .get(`${autocompleteApiUrl}?arg=${playerName}${minimumOverall}${nationSelect}${nationExclude}`)
+            .get(`${autocompleteApiUrl}?arg=${playerName}${minimumOverall}${nationSelect}${nationExclude}${positionSelect}`)
             .then((req) => {
                 const playerPayload = [];
                 req.data.forEach((player) =>{
@@ -37,7 +42,7 @@ export const modifyAttributes = (playerName='', searchType='', attributes={}) =>
         }
         else if(searchType =='Fuzzy'){
             return axios
-            .get(`${fuzzyApiUrl}?arg=${playerName}${minimumOverall}${nationSelect}${nationExclude}`)
+            .get(`${fuzzyApiUrl}?arg=${playerName}${minimumOverall}${nationSelect}${nationExclude}${positionSelect}`)
             .then((req) => {
                 const playerPayload = [];
                 req.data.forEach((player) =>{
@@ -49,7 +54,7 @@ export const modifyAttributes = (playerName='', searchType='', attributes={}) =>
         }
         else{
             return axios
-            .get(`${wildcardApiUrl}?arg=${playerName}${minimumOverall}${nationSelect}${nationExclude}`)
+            .get(`${wildcardApiUrl}?arg=${playerName}${minimumOverall}${nationSelect}${nationExclude}${positionSelect}`)
             .then((req) => {
                 const playerPayload = [];
                 req.data.data.forEach((player) =>{

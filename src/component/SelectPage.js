@@ -38,7 +38,6 @@ class SelectPage extends React.Component{
     
 
     setAutocompleteTextState = (text) =>{
-        console.log(text);
         this.setState( () => ({ autocompleteText:text}))
     } 
     setFuzzymatchTextState = (text) =>{
@@ -62,12 +61,10 @@ class SelectPage extends React.Component{
 
                 this.setState({autocompleteText: playerNameState}, function () {
                     this.props.modifyAttributes(this.state.autocompleteText, value, this.AttributesList.current.state); 
-                    //this.props.modifyAttributes(this.state.autocompleteText, value, this.AttributesList.current.state); 
                 });
             }
             else{
                 //query DB with our state (Redux) *Action*
-                console.log('is the problem here??');
                 this.props.modifyAttributes(this.state.autocompleteText, value, this.AttributesList.current.state);
             }
         }
@@ -84,9 +81,16 @@ class SelectPage extends React.Component{
     };
 
     onReset = () => {
-        //want to trigger state refresh in redux first.
-        this.props.resetAttributes;
-        //want the page to refresh.
+        // console.log('in reset');
+        // this.setState=( () => ({
+        //     autocompleteText:"",
+        //     fuzzymatchText:"",
+        //     wildcardText:"",
+        //     querySent:false
+        // }));
+
+        // this.props.resetAttributes;
+        location.reload();
     }
 
     playerSelect = (player) => {
@@ -125,16 +129,19 @@ class SelectPage extends React.Component{
                             {/*<button type="submit" className="btn btn-primary">Submit</button>*/}
                         </form>
                         <br />
-                        <form onSubmit={this.onReset.bind(this)}>
-                            <button type="submit" className="btn btn-primary">Reset State</button>
-                        </form>
+                        {/*<form onSubmit={this.onReset.bind(this)}>
+                            <button type="submit" className="btn btn-primary"></button>
+                        </form>*/}
+                        <div onClick={this.onReset.bind(this)} style={{"textAlign":"right"}}>
+                            <img style={{"maxWidth":"10%", "maxHeight":"10%"}} src="../images/nationality.png"/>
+                        </div>
 
                         <div>
                             {this.props.players.map((player, index) => {
                                 return <div onClick={this.playerSelect.bind(this, player)} key={index}><Player key={player._id.$oid} {...player}/></div>
                             })}
 
-                            {this.state.querySent && this.props.players.length == 0 ? <div><h1>No Players Available</h1></div>:<div></div>}
+                            {this.state.querySent && this.props.players.length == 0 ? <div style={{"textAlign":"center"}}><img style={{"maxWidth":"60%", "maxHeight":"60%"}} src="../images/no-available-players.jpg"/></div>:<div></div>}
                         </div>
                     </div>
                 </div>
