@@ -62,7 +62,7 @@ class BuildTeam extends React.Component{
                     <div className="col-md-2">
                         {
                             this.props.players[8].Name.length < 1 ?
-                                <div className="card" onClick={this.assignPlayer.bind(this, 8)} style={{"backgroundColor":"#cccccc", "borderRadius":"3px", "boxShadow": "7px 7px 4px black"}}>
+                                <div className="card" onClick={this.assignPlayer.bind(this, 8)} style={{"height":"146px", "backgroundColor":"#cccccc", "borderRadius":"3px", "boxShadow": "7px 7px 4px black"}}>
                                     <div className="row">
                                         <div className="col-md-4" >
                                             <div></div>
@@ -90,7 +90,7 @@ class BuildTeam extends React.Component{
                     <div className="col-md-2">
                         {
                             this.props.players[9].Name.length < 1 ?
-                            <div className="card" onClick={this.assignPlayer.bind(this, 9)} style={{"backgroundColor":"#cccccc", "borderRadius":"3px", "boxShadow": "7px 7px 4px black"}}>
+                            <div className="card" onClick={this.assignPlayer.bind(this, 9)} style={{"height":"146px", "backgroundColor":"#cccccc", "borderRadius":"3px", "boxShadow": "7px 7px 4px black"}}>
                                 <div className="row">
                                     <div className="col-md-4" >
                                         <div></div>
@@ -118,7 +118,7 @@ class BuildTeam extends React.Component{
                     <div className="col-md-2">
                         {
                             this.props.players[10].Name.length < 1 ?
-                            <div className="card" onClick={this.assignPlayer.bind(this, 10)} style={{"backgroundColor":"#cccccc", "borderRadius":"3px", "boxShadow": "7px 7px 4px black"}}>
+                            <div className="card" onClick={this.assignPlayer.bind(this, 10)} style={{"height":"146px", "backgroundColor":"#cccccc", "borderRadius":"3px", "boxShadow": "7px 7px 4px black"}}>
                                 <div className="row">
                                     <div className="col-md-4" >
                                         <div></div>
@@ -151,7 +151,7 @@ class BuildTeam extends React.Component{
                     <div className="col-md-2">
                         {
                             this.props.players[5].Name.length < 1 ?
-                            <div className="card" onClick={this.assignPlayer.bind(this, 5)} style={{"backgroundColor":"#cccccc", "borderRadius":"3px", "boxShadow": "7px 7px 4px black"}}>
+                            <div className="card" onClick={this.assignPlayer.bind(this, 5)} style={{"height":"146px", "backgroundColor":"#cccccc", "borderRadius":"3px", "boxShadow": "7px 7px 4px black"}}>
                                 <div className="row">
                                     <div className="col-md-4" >
                                         <div></div>
@@ -179,7 +179,7 @@ class BuildTeam extends React.Component{
                     <div className="col-md-2">
                         {
                             this.props.players[6].Name.length < 1 ?
-                            <div className="card" onClick={this.assignPlayer.bind(this, 6)} style={{"backgroundColor":"#cccccc", "borderRadius":"3px", "boxShadow": "7px 7px 4px black"}}>
+                            <div className="card" onClick={this.assignPlayer.bind(this, 6)} style={{"height":"146px", "backgroundColor":"#cccccc", "borderRadius":"3px", "boxShadow": "7px 7px 4px black"}}>
                                 <div className="row">
                                     <div className="col-md-4" >
                                         <div></div>
@@ -207,7 +207,7 @@ class BuildTeam extends React.Component{
                     <div className="col-md-2">
                         {
                             this.props.players[7].Name.length < 1 ?
-                            <div className="card" onClick={this.assignPlayer.bind(this, 7)} style={{"backgroundColor":"#cccccc", "borderRadius":"3px", "boxShadow": "7px 7px 4px black"}}>
+                            <div className="card" onClick={this.assignPlayer.bind(this, 7)} style={{"height":"146px", "backgroundColor":"#cccccc", "borderRadius":"3px", "boxShadow": "7px 7px 4px black"}}>
                                 <div className="row">
                                     <div className="col-md-4" >
                                         <div></div>
@@ -237,7 +237,7 @@ class BuildTeam extends React.Component{
                 <div className="col-md-2">
                 {
                     this.props.players[1].Name.length < 1 ?
-                    <div className="card" onClick={this.assignPlayer.bind(this, 1)} style={{"backgroundColor":"#cccccc", "borderRadius":"3px", "boxShadow": "7px 7px 4px black"}}>
+                    <div className="card" onClick={this.assignPlayer.bind(this, 1)} style={{"height":"146px", "backgroundColor":"#cccccc", "borderRadius":"3px", "boxShadow": "7px 7px 4px black"}}>
                         <div className="row">
                             <div className="col-md-4" >
                                 <div></div>
@@ -265,7 +265,7 @@ class BuildTeam extends React.Component{
                     <div className="col-md-2">
                         {
                             this.props.players[2].Name.length < 1 ?
-                            <div className="card" onClick={this.assignPlayer.bind(this, 2)} style={{"backgroundColor":"#cccccc", "borderRadius":"3px", "boxShadow": "7px 7px 4px black"}}>
+                            <div className="card" onClick={this.assignPlayer.bind(this, 2)} style={{"height":"146px", "backgroundColor":"#cccccc", "borderRadius":"3px", "boxShadow": "7px 7px 4px black"}}>
                                 <div className="row">
                                     <div className="col-md-4" >
                                         <div></div>
@@ -293,7 +293,7 @@ class BuildTeam extends React.Component{
                     <div className="col-md-2">
                         {
                             this.props.players[3].Name.length < 1 ?
-                            <div className="card" onClick={this.assignPlayer.bind(this, 3)} style={{"backgroundColor":"#cccccc", "borderRadius":"3px", "boxShadow": "7px 7px 4px black"}}>
+                            <div className="card" onClick={this.assignPlayer.bind(this, 3)} style={{"height":"146px", "backgroundColor":"#cccccc", "borderRadius":"3px", "boxShadow": "7px 7px 4px black"}}>
                                 <div className="row">
                                     <div className="col-md-4" >
                                         <div></div>
@@ -321,7 +321,7 @@ class BuildTeam extends React.Component{
                     <div className="col-md-2">
                         {
                             this.props.players[4].Name.length < 1 ?
-                            <div className="card" onClick={this.assignPlayer.bind(this, 4)} style={{"backgroundColor":"#cccccc", "borderRadius":"3px", "boxShadow": "7px 7px 4px black"}}>
+                            <div className="card" onClick={this.assignPlayer.bind(this, 4)} style={{"height":"146px", "backgroundColor":"#cccccc", "borderRadius":"3px", "boxShadow": "7px 7px 4px black"}}>
                                 <div className="row">
                                     <div className="col-md-4" >
                                         <div></div>
@@ -351,7 +351,7 @@ class BuildTeam extends React.Component{
                     <div className="col-md-2">
                         {
                             this.props.players[0].Name.length < 1 ?
-                            <div className="card" onClick={this.assignPlayer.bind(this, 0)} style={{"backgroundColor":"#cccccc", "borderRadius":"3px", "boxShadow": "7px 7px 4px black"}}>
+                            <div className="card" onClick={this.assignPlayer.bind(this, 0)} style={{"height":"146px", "backgroundColor":"#cccccc", "borderRadius":"3px", "boxShadow": "7px 7px 4px black"}}>
                                 <div className="row">
                                     <div className="col-md-4" >
                                         <div></div>

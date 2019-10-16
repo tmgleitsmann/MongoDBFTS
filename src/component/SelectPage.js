@@ -108,7 +108,7 @@ class SelectPage extends React.Component{
                         <Attributes ref={this.AttributesList}/>
                     </div>
                     <div className="col-md-9">
-                        <h1>Choose your baller</h1>
+                        <h1>Find Your Baller</h1>
                         <form onSubmit={this.onSubmit.bind(this, "Autocomplete")}>
                             <input className="form-control form-control-lg" 
                             onChange={this.onTextChange.bind(this, "Autocomplete")} 
