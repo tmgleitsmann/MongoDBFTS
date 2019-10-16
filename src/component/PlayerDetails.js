@@ -1,12 +1,27 @@
 import React from 'react';
-
+import {NavLink} from 'react-router-dom';
+import {removePlayer} from '../actions/players';
+import {resetAttributes} from '../actions/attributes';
+import { connect } from 'react-redux';
 class PlayerDetails extends React.Component{
     constructor(props){
         super(props);
+        console.log(this);
     }
 
-    displayLog = () => {
-        console.log(this.props.location.state);
+    playerSelect = (player) => {
+        this.props.history.push(
+                `/build`,
+                player
+        );
+    }
+
+    playerRemove = (player) => {
+        this.props.removePlayer(player);
+        this.props.location.state.Select = undefined;
+        this.props.history.push(
+            '/build'
+        );
     }
 
     render(){
@@ -50,30 +65,37 @@ class PlayerDetails extends React.Component{
                         <div className="col-md-4"></div>
                     </div>
 
-                    <h2>Score: {this.props.location.state.score.$numberDouble}</h2>
+                    {this.props.location.state.Select == undefined ? 
+                        <form onSubmit={this.playerSelect.bind(this, this.props.location.state)}>
+                            <button type="submit" className="btn btn-primary">Add To Team</button>
+                        </form>
+                        :
+                        <div>
+                            <NavLink to="/build"><button type="submit" className="btn btn-primary">Back To Team</button></NavLink>
+                            <button type="submit" onClick = {this.playerRemove.bind(this, this.props.location.state)} className="btn btn-primary">Remove From Team</button>
+                        </div>
+                    }
 
                 </div>
             </div>
-
-
-
-
-
-
-            // <div>
-            //     <h1>{this.props.location.state.Name}</h1>
-            //     <img src={this.props.location.state.Photo}/>
-            //     <img src={this.props.location.state.Flag}/>
-            //     <p>{this.props.location.state.Age.$numberInt}</p>
-            //     <p>{this.props.location.state.Jersey.$numberInt}</p>
-            //     <p>{this.props.location.state.Overall.$numberInt}</p>
-            //     <p>{this.props.location.state.Nationality}</p>
-            //     <p>{this.props.location.state.Club}</p>
-            //     <p>{this.props.location.state.Position}</p>
-            //     <p>{this.props.location.state.Score}</p>
-            // </div>
         );
     }
 }
 
-export default PlayerDetails;
+//export default PlayerDetails;
+
+const mapDispatchToProps = (dispatch) => {
+    /* playerSearch will be an object */
+    return{
+        removePlayer: (Name) => dispatch(removePlayer(Name)),
+        resetAttributes: () => dispatch(resetAttributes())
+    };
+};
+
+const mapStateToProps = (state, props) => {
+    return {
+        players: state.players,
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(PlayerDetails)

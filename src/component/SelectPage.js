@@ -26,20 +26,32 @@ class SelectPage extends React.Component{
         const text = e.target.value;
         if(value == "Autocomplete"){
             autocomplete(document.getElementById("autocompleteInput"), players);
-            this.setState( () => ({ autocompleteText:text }));
+            this.setAutocompleteTextState(text);
         }
         else if(value == "Fuzzy"){
-            this.setState( () => ({ fuzzymatchText:text }));
+            this.setFuzzymatchTextState(text);
         }
         else{
-            this.setState( () => ({ wildcardText:text }));
+            this.setWildcardTextState(text);
         }
     }
+    
 
+    setAutocompleteTextState = (text) =>{
+        console.log(text);
+        this.setState( () => ({ autocompleteText:text}))
+    } 
+    setFuzzymatchTextState = (text) =>{
+        this.setState( () => ({ fuzzymatchText:text}))
+
+    } 
+    setWildcardTextState = (text) =>{
+        this.setState( () => ({ wildcardText:text}))
+    } 
 
     onSubmit = (value, e) => {
-        //prevent page refresh
         e.preventDefault();
+        this.props.resetAttributes;
         //determine whether autocomplete, fuzzymatching or wildcard is desired search.
         //Persist state in redux before querying MongoDB & Redirecting page. 
         this.setState( () => ({ querySent:true }));
@@ -47,29 +59,28 @@ class SelectPage extends React.Component{
             
             if(playerNameState != this.state.autocompleteText && playerNameState.length > this.state.autocompleteText.length){
                 /* CHANGE THE STATE OF THE AUTOCOMPLETETEXT TO SHOW UPDATED NAME */
-                this.props.resetAttributes;
-                this.props.modifyAttributes(playerNameState, value, this.AttributesList.current.state);
+
+                this.setState({autocompleteText: playerNameState}, function () {
+                    this.props.modifyAttributes(this.state.autocompleteText, value, this.AttributesList.current.state); 
+                    //this.props.modifyAttributes(this.state.autocompleteText, value, this.AttributesList.current.state); 
+                });
             }
             else{
                 //query DB with our state (Redux) *Action*
-                this.props.resetAttributes;
+                console.log('is the problem here??');
                 this.props.modifyAttributes(this.state.autocompleteText, value, this.AttributesList.current.state);
-                //this.props.history.push(`/player/${this.state.autocompleteText}`);
             }
         }
         else if(value == "Fuzzy" && this.state.fuzzymatchText.length > 0){
             //query DB with our state (Redux) *Action*
-            this.props.resetAttributes;
             this.props.modifyAttributes(this.state.fuzzymatchText, value, this.AttributesList.current.state);
-            //this.props.history.push(`/player/${this.state.fuzzymatchText}`);
         }
         else if(value == "" && this.state.wildcardText.length > 0){
             //query DB with our state (Redux) *Action*
-            this.props.resetAttributes;
             this.props.modifyAttributes(this.state.wildcardText, value, this.AttributesList.current.state);
-            //this.props.history.push(`/player/${this.state.wildcardText}`);
         }
         else{/* Do Nothing */}
+        playerNameState = '';
     };
 
     onReset = () => {

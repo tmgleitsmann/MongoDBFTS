@@ -21,12 +21,7 @@ export const modifyAttributes = (playerName='', searchType='', attributes={}) =>
     if(attributes.minOverall > 1){
         minimumOverall = `&over=${attributes.minOverall}`;
     }
-
-
-    console.log('attributes: ', attributes);
-    console.log('nationExclude: ', nationExclude);
-    console.log('nationInclude: ', nationSelect);
-    console.log('minimumOverall: ', minimumOverall);
+    
     return(dispatch) => {
         if(searchType=='Autocomplete'){
             return axios
@@ -73,23 +68,6 @@ export const setModifiedAttributes = (modAttributes) => {
         type:'SEARCH'
     };
 }
-
-
-
-/*
-return (dispatch) => {
-            return axios
-            .get(`${apiUrl}/${initMethod}/${initEmail}`)
-            .then((req) => {
-                const expenseList = [];
-                req.data.data.forEach((expense) => {
-                    expenseList.push(expense);
-                })
-                dispatch(setExpenses(expenseList));
-            })
-            .catch((res) => {return Promise.reject(res);});
-        }
-*/
 
 export const resetAttributes = () => {
     return {
