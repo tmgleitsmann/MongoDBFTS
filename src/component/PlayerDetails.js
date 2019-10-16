@@ -84,11 +84,12 @@ class PlayerDetails extends React.Component{
                         </div>
                     }
 
-                    <div style={{"textAlign":"center"}}>
-                        <img src = "../images/fifa-image-4.png"/>
-                    </div>
-
                 </div>
+
+                <div style={{"textAlign":"center"}}>
+                     <img src = "../images/fifa-image-4.png"/>
+                </div>
+
             </div>
         );
     }

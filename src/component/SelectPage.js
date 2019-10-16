@@ -108,41 +108,44 @@ class SelectPage extends React.Component{
                         <Attributes ref={this.AttributesList}/>
                     </div>
                     <div className="col-md-9">
-                        <h1>Find Your Baller</h1>
-                        <form onSubmit={this.onSubmit.bind(this, "Autocomplete")}>
-                            <input className="form-control form-control-lg" 
-                            onChange={this.onTextChange.bind(this, "Autocomplete")} 
-                            type="text" autoComplete="off" 
-                            placeholder="Autocomplete" 
-                            id="autocompleteInput" onKeyDown={(e)=>{if(e.keyCode === 13){ this.onSubmit("Autocomplete", e)}}}>
-                            </input>
-                            {/*<button type="submit" className="btn btn-primary">Submit</button>*/}
-                        </form>
-                        <br />
-                        <form onSubmit={this.onSubmit.bind(this, "Fuzzy")}>
-                            <input className="form-control form-control-lg" onChange={this.onTextChange.bind(this, "Fuzzy")} type="text" autoComplete="off" placeholder="Fuzzy"></input>
-                            {/*<button type="submit" className="btn btn-primary">Submit</button>*/}
-                        </form>
-                        <br />
-                        <form onSubmit={this.onSubmit.bind(this, "Wildcard")}>
-                            <input className="form-control form-control-lg" onChange={this.onTextChange.bind(this, "Wildcard")} type="text" autoComplete="off" placeholder="Wildcard"></input>
-                            {/*<button type="submit" className="btn btn-primary">Submit</button>*/}
-                        </form>
-                        <br />
-                        {/*<form onSubmit={this.onReset.bind(this)}>
-                            <button type="submit" className="btn btn-primary"></button>
-                        </form>*/}
-                        <div onClick={this.onReset.bind(this)} style={{"textAlign":"right"}}>
-                            <img style={{"maxWidth":"10%", "maxHeight":"10%"}} src="../images/nationality.png"/>
+                        <div jumbotron p-0 id="sImage">
+                            <h1>Find Your Baller</h1>
+                            <form onSubmit={this.onSubmit.bind(this, "Autocomplete")}>
+                                <input className="form-control form-control-lg" 
+                                onChange={this.onTextChange.bind(this, "Autocomplete")} 
+                                type="text" autoComplete="off" 
+                                placeholder="Autocomplete" 
+                                id="autocompleteInput" onKeyDown={(e)=>{if(e.keyCode === 13){ this.onSubmit("Autocomplete", e)}}}>
+                                </input>
+                                {/*<button type="submit" className="btn btn-primary">Submit</button>*/}
+                            </form>
+                            <br />
+                            <form onSubmit={this.onSubmit.bind(this, "Fuzzy")}>
+                                <input className="form-control form-control-lg" onChange={this.onTextChange.bind(this, "Fuzzy")} type="text" autoComplete="off" placeholder="Fuzzy"></input>
+                                {/*<button type="submit" className="btn btn-primary">Submit</button>*/}
+                            </form>
+                            <br />
+                            <form onSubmit={this.onSubmit.bind(this, "Wildcard")}>
+                                <input className="form-control form-control-lg" onChange={this.onTextChange.bind(this, "Wildcard")} type="text" autoComplete="off" placeholder="Wildcard"></input>
+                                {/*<button type="submit" className="btn btn-primary">Submit</button>*/}
+                            </form>
+                            <br />
+                            {/*<form onSubmit={this.onReset.bind(this)}>
+                                <button type="submit" className="btn btn-primary"></button>
+                            </form>*/}
+                            <div onClick={this.onReset.bind(this)} style={{"textAlign":"right"}}>
+                                <img style={{"maxWidth":"10%", "maxHeight":"10%"}} src="../images/nationality.png"/>
+                            </div>
                         </div>
 
                         <div>
                             {this.props.players.map((player, index) => {
-                                return <div onClick={this.playerSelect.bind(this, player)} key={index}><Player key={player._id.$oid} {...player}/></div>
+                                return <div onClick={this.playerSelect.bind(this, player)} key={index}><hr/><Player key={player._id.$oid} {...player}/></div>
                             })}
 
                             {this.state.querySent && this.props.players.length == 0 ? <div style={{"textAlign":"center"}}><img style={{"maxWidth":"60%", "maxHeight":"60%"}} src="../images/no-available-players.jpg"/></div>:<div></div>}
                         </div>
+                        
                     </div>
                 </div>
             </div>

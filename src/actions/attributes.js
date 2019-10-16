@@ -45,6 +45,7 @@ export const modifyAttributes = (playerName='', searchType='', attributes={}) =>
             .get(`${fuzzyApiUrl}?arg=${playerName}${minimumOverall}${nationSelect}${nationExclude}${positionSelect}`)
             .then((req) => {
                 const playerPayload = [];
+                console.log(req);
                 req.data.forEach((player) =>{
                     playerPayload.push(player)
                 })
@@ -53,11 +54,12 @@ export const modifyAttributes = (playerName='', searchType='', attributes={}) =>
             .catch((res) => {return Promise.reject(res);});
         }
         else{
+            console.log(`${wildcardApiUrl}?arg=${playerName}`);
             return axios
             .get(`${wildcardApiUrl}?arg=${playerName}${minimumOverall}${nationSelect}${nationExclude}${positionSelect}`)
             .then((req) => {
                 const playerPayload = [];
-                req.data.data.forEach((player) =>{
+                req.data.forEach((player) =>{
                     playerPayload.push(player)
                 })
                 dispatch(setModifiedAttributes({...attributes, playerName, searchType, playerPayload}))
