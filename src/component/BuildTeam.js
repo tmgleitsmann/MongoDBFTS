@@ -62,13 +62,14 @@ class BuildTeam extends React.Component{
                     <div className="col-md-2">
                         {
                             this.props.players[8].Name.length < 1 ?
-                                <div className="card" onClick={this.assignPlayer.bind(this, 8)} style={{"height":"146px", "backgroundColor":"#cccccc", "borderRadius":"3px", "boxShadow": "7px 7px 4px black"}}>
+                                <div className="card" onClick={this.assignPlayer.bind(this, 8)} 
+                                style={{"height":"146px", "backgroundColor":"#cccccc", "borderRadius":"3px", "boxShadow": "7px 7px 4px black"}}>
                                     <div className="row">
                                         <div className="col-md-4" >
                                             <div></div>
                                         </div>
                                         <div className="col-md-3 text-center" style={{"textAlign":"left"}}>
-                                            <img src="../images/fifa-image-3.png" style={{maxWidth:"200%", "maxHeight":"200%"}}/>
+                                            <img src="../images/fifa-image-3.png" style={{"width":"51px", "height":"60px"}}/>
                                         </div>
                                         <div className="col-md-5" >
                                             <div></div>
@@ -96,7 +97,7 @@ class BuildTeam extends React.Component{
                                         <div></div>
                                     </div>
                                     <div className="col-md-3 text-center" style={{"textAlign":"left"}}>
-                                        <img src="../images/fifa-image-3.png" style={{maxWidth:"200%", "maxHeight":"200%"}}/>
+                                        <img src="../images/fifa-image-3.png" style={{"width":"51px", "height":"60px"}}/>
                                     </div>
                                     <div className="col-md-5" >
                                         <div></div>
@@ -124,7 +125,7 @@ class BuildTeam extends React.Component{
                                         <div></div>
                                     </div>
                                     <div className="col-md-3 text-center" style={{"textAlign":"left"}}>
-                                        <img src="../images/fifa-image-3.png" style={{maxWidth:"200%", "maxHeight":"200%"}}/>
+                                        <img src="../images/fifa-image-3.png" style={{"width":"51px", "height":"60px"}}/>
                                     </div>
                                     <div className="col-md-5" >
                                         <div></div>
@@ -157,7 +158,7 @@ class BuildTeam extends React.Component{
                                         <div></div>
                                     </div>
                                     <div className="col-md-3 text-center" style={{"textAlign":"left"}}>
-                                        <img src="../images/fifa-image-3.png" style={{maxWidth:"200%", "maxHeight":"200%"}}/>
+                                        <img src="../images/fifa-image-3.png" style={{"width":"51px", "height":"60px"}}/>
                                     </div>
                                     <div className="col-md-5" >
                                         <div></div>
@@ -185,7 +186,7 @@ class BuildTeam extends React.Component{
                                         <div></div>
                                     </div>
                                     <div className="col-md-3 text-center" style={{"textAlign":"left"}}>
-                                        <img src="../images/fifa-image-3.png" style={{maxWidth:"200%", "maxHeight":"200%"}}/>
+                                        <img src="../images/fifa-image-3.png" style={{"width":"51px", "height":"60px"}}/>
                                     </div>
                                     <div className="col-md-5" >
                                         <div></div>
@@ -213,7 +214,7 @@ class BuildTeam extends React.Component{
                                         <div></div>
                                     </div>
                                     <div className="col-md-3 text-center" style={{"textAlign":"left"}}>
-                                        <img src="../images/fifa-image-3.png" style={{maxWidth:"200%", "maxHeight":"200%"}}/>
+                                        <img src="../images/fifa-image-3.png" style={{"width":"51px", "height":"60px"}}/>
                                     </div>
                                     <div className="col-md-5" >
                                         <div></div>
@@ -243,7 +244,7 @@ class BuildTeam extends React.Component{
                                 <div></div>
                             </div>
                             <div className="col-md-3 text-center" style={{"textAlign":"left"}}>
-                                <img src="../images/fifa-image-3.png" style={{maxWidth:"200%", "maxHeight":"200%"}}/>
+                                <img src="../images/fifa-image-3.png" style={{"width":"51px", "height":"60px"}}/>
                             </div>
                             <div className="col-md-5" >
                                 <div></div>
@@ -271,7 +272,7 @@ class BuildTeam extends React.Component{
                                         <div></div>
                                     </div>
                                     <div className="col-md-3 text-center" style={{"textAlign":"left"}}>
-                                        <img src="../images/fifa-image-3.png" style={{maxWidth:"200%", "maxHeight":"200%"}}/>
+                                        <img src="../images/fifa-image-3.png" style={{"width":"51px", "height":"60px"}}/>
                                     </div>
                                     <div className="col-md-5" >
                                         <div></div>
@@ -299,7 +300,7 @@ class BuildTeam extends React.Component{
                                         <div></div>
                                     </div>
                                     <div className="col-md-3 text-center" style={{"textAlign":"left"}}>
-                                        <img src="../images/fifa-image-3.png" style={{maxWidth:"200%", "maxHeight":"200%"}}/>
+                                        <img src="../images/fifa-image-3.png" style={{"width":"51px", "height":"60px"}}/>
                                     </div>
                                     <div className="col-md-5" >
                                         <div></div>
@@ -327,7 +328,7 @@ class BuildTeam extends React.Component{
                                         <div></div>
                                     </div>
                                     <div className="col-md-3 text-center" style={{"textAlign":"left"}}>
-                                        <img src="../images/fifa-image-3.png" style={{maxWidth:"200%", "maxHeight":"200%"}}/>
+                                        <img src="../images/fifa-image-3.png" style={{"width":"51px", "height":"60px"}}/>
                                     </div>
                                     <div className="col-md-5" >
                                         <div></div>
@@ -357,7 +358,7 @@ class BuildTeam extends React.Component{
                                         <div></div>
                                     </div>
                                     <div className="col-md-3 text-center" style={{"textAlign":"left"}}>
-                                        <img src="../images/fifa-image-3.png" style={{maxWidth:"200%", "maxHeight":"200%"}}/>
+                                        <img src="../images/fifa-image-3.png" style={{"width":"51px", "height":"60px"}}/>
                                     </div>
                                     <div className="col-md-5" >
                                         <div></div>

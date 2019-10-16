@@ -1,13 +1,21 @@
+body{
+  min-width:1350px;        /* Suppose you want minimum width of 1000px */
+  width: auto !important;  /* Firefox will set width as auto */
+  width:1350px;            /* As IE6 ignores !important it will set width as 1000px; */
+}
+
 .text-center {
     text-align: center!important;
   }
   
   #landing-img {
     text-align: center;
-    height: 700px;
+    height:845px;
     margin-top: 0px;
     background: url(/images/build-team.jpg);
     background-size: cover;
     background-position: center;
     overflow: hidden;
   }
+
+  
