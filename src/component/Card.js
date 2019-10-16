@@ -8,7 +8,7 @@ class Card extends React.Component{
 
     render(){
         return(
-            <div className="card">
+            <div className="card" style={{"height":"146px", "backgroundColor":"#f2f2f2", "borderRadius":"3px", "boxShadow": "7px 7px 4px black"}}>
                 <div className="row">
                     <div className="col-md-3" >
                         <div></div>

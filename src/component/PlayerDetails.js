@@ -70,9 +70,17 @@ class PlayerDetails extends React.Component{
                             <button type="submit" className="btn btn-primary">Add To Team</button>
                         </form>
                         :
-                        <div>
-                            <NavLink to="/build"><button type="submit" className="btn btn-primary">Back To Team</button></NavLink>
-                            <button type="submit" onClick = {this.playerRemove.bind(this, this.props.location.state)} className="btn btn-primary">Remove From Team</button>
+                        <div className="row text-center">
+                            <div className="col-md-4">
+                            </div>
+                            <div className="col-md-2">
+                                <NavLink to="/build"><button type="submit" className="btn btn-primary">Back To Team</button></NavLink>
+                            </div>
+                            <div className="col-md-2">
+                                <button type="submit" onClick = {this.playerRemove.bind(this, this.props.location.state)} className="btn btn-primary">Remove From Team</button>
+                            </div>
+                            <div className="col-md-4">
+                            </div>
                         </div>
                     }
 
