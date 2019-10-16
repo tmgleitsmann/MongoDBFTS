@@ -72,7 +72,7 @@ class SelectPage extends React.Component{
             //query DB with our state (Redux) *Action*
             this.props.modifyAttributes(this.state.fuzzymatchText, value, this.AttributesList.current.state);
         }
-        else if(value == "" && this.state.wildcardText.length > 0){
+        else if(value == "Wildcard" && this.state.wildcardText.length > 0){
             //query DB with our state (Redux) *Action*
             this.props.modifyAttributes(this.state.wildcardText, value, this.AttributesList.current.state);
         }
