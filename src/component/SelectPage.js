@@ -108,9 +108,15 @@ class SelectPage extends React.Component{
                         <Attributes ref={this.AttributesList}/>
                     </div>
                     <div className="col-md-9">
-                        <div jumbotron p-0 id="sImage">
-                            <h1>Find Your Baller</h1>
-                            <form onSubmit={this.onSubmit.bind(this, "Autocomplete")}>
+                        <div className="jumbotron p-0" style={{"backgroundColor":"white", "borderStyle":"solid", 
+                            "borderWidth":"1px", "borderColor":"darkgreen", "marginBottom":"20px", "marginTop":"20px", "MozBoxShadow" : "1px 1px 10px #00f", 
+                            "WebkitBoxShadow": "5px 5px 5px rgba(68, 68, 68, 0.6)", "boxShadow":"5px 5px 5px rgba(68, 68, 68, 0.6", 
+                            "filter":"progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30)",
+                            "msFilter":"progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30)",
+                            "zoom":"1"
+                            }}>
+                            <h1 style={{"textAlign":"center", "marginBottom":"50px", "marginTop":"50px"}}>Find Your Baller</h1>
+                            <form onSubmit={this.onSubmit.bind(this, "Autocomplete")} style={{"marginLeft":"2.4rem", "marginRight":"2.4rem"}}>
                                 <input className="form-control form-control-lg" 
                                 onChange={this.onTextChange.bind(this, "Autocomplete")} 
                                 type="text" autoComplete="off" 
@@ -120,12 +126,12 @@ class SelectPage extends React.Component{
                                 {/*<button type="submit" className="btn btn-primary">Submit</button>*/}
                             </form>
                             <br />
-                            <form onSubmit={this.onSubmit.bind(this, "Fuzzy")}>
+                            <form onSubmit={this.onSubmit.bind(this, "Fuzzy")} style={{"marginLeft":"2.4rem", "marginRight":"2.4rem"}}>
                                 <input className="form-control form-control-lg" onChange={this.onTextChange.bind(this, "Fuzzy")} type="text" autoComplete="off" placeholder="Fuzzy"></input>
                                 {/*<button type="submit" className="btn btn-primary">Submit</button>*/}
                             </form>
                             <br />
-                            <form onSubmit={this.onSubmit.bind(this, "Wildcard")}>
+                            <form onSubmit={this.onSubmit.bind(this, "Wildcard")} style={{"marginLeft":"2.4rem", "marginRight":"2.4rem"}}>
                                 <input className="form-control form-control-lg" onChange={this.onTextChange.bind(this, "Wildcard")} type="text" autoComplete="off" placeholder="Wildcard"></input>
                                 {/*<button type="submit" className="btn btn-primary">Submit</button>*/}
                             </form>
@@ -137,7 +143,7 @@ class SelectPage extends React.Component{
                                 <img style={{"maxWidth":"10%", "maxHeight":"10%"}} src="../images/nationality.png"/>
                             </div>
                         </div>
-
+                        
                         <div>
                             {this.props.players.map((player, index) => {
                                 return <div onClick={this.playerSelect.bind(this, player)} key={index}><hr/><Player key={player._id.$oid} {...player}/></div>

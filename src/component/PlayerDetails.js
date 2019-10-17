@@ -48,7 +48,8 @@ class PlayerDetails extends React.Component{
                         <h6 className="text-muted card-subtitle mb-2">{this.props.location.state.Club}</h6>
                     </div>
 
-                    <div className="row text-center">
+
+                    <div className="row text-center" style={{marginTop:"15px"}}>
                         <div className="col-md-4"></div>
                         <div className="col-md-1">
                                 <h6 className="text-muted card-subtitle mb-2">Position: {this.props.location.state.Position}</h6>
@@ -65,12 +66,48 @@ class PlayerDetails extends React.Component{
                         <div className="col-md-4"></div>
                     </div>
 
+                    <div className="row text-center" style={{marginTop:"15px"}}>
+                        <div className="col-md-4"></div>
+                        <div className="col-md-1">
+                                <h6 className="text-muted card-subtitle mb-2">Speed: {this.props.location.state.SprintSpeed.$numberInt}</h6>
+                        </div>
+                        <div className="col-md-1">
+                                <h6 className="text-muted card-subtitle mb-2">Dribbling: {this.props.location.state.Dribbling.$numberInt}</h6>
+                        </div>
+                        <div className="col-md-1">
+                                <h6 className="text-muted card-subtitle mb-2">Skills: {this.props.location.state.Skills.$numberInt}</h6>
+                        </div>
+                        <div className="col-md-1">
+                                <h6 className="text-muted card-subtitle mb-2">Foot: {this.props.location.state.Foot}</h6>
+                        </div>
+                        <div className="col-md-4"></div>
+                    </div>
+
+                    <div className="row text-center" style={{marginTop:"15px"}}>
+                        <div className="col-md-4"></div>
+                        <div className="col-md-1">
+                                <h6 className="text-muted card-subtitle mb-2">Wage: {this.props.location.state.Wage}</h6>
+                        </div>
+                        <div className="col-md-1">
+                                <h6 className="text-muted card-subtitle mb-2">Value: {this.props.location.state.Value}</h6>
+                        </div>
+                        <div className="col-md-1">
+                                <h6 className="text-muted card-subtitle mb-2">Weight: {this.props.location.state.Weight}</h6>
+                        </div>
+                        <div className="col-md-1">
+                                <h6 className="text-muted card-subtitle mb-2">Height: {this.props.location.state.Height}</h6>
+                        </div>
+                        <div className="col-md-4"></div>
+                    </div>
+
                     {this.props.location.state.Select == undefined ? 
-                        <form onSubmit={this.playerSelect.bind(this, this.props.location.state)}>
-                            <button type="submit" className="btn btn-primary">Add To Team</button>
-                        </form>
+                            <button style={{marginTop:"15px"}} type="submit" 
+                            className="btn btn-primary" 
+                            onClick={this.playerSelect.bind(this, this.props.location.state)}>
+                                Add To Team
+                            </button>
                         :
-                        <div className="row text-center">
+                        <div className="row text-center" style={{marginTop:"15px"}}>
                             <div className="col-md-4">
                             </div>
                             <div className="col-md-2">
