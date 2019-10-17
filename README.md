@@ -1,68 +1,35 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Before Executing!
+npm install to install all the required node_modules into the project directory. 
+npm run build:prod to bundle the project into a bundle.js file which will be located in /public/dist/
+npm run dev-server 
+(temporary, this will be hosted on either heroku or aws soon)
 
-## Available Scripts
-
+Available Scripts
 In the project directory, you can run:
 
-### `npm start`
+npm start
+node server/server.js Runs the app from the node server.js file. Open http://localhost:3000 to view it in the browser.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
+The page will reload if you make edits.
 You will also see any lint errors in the console.
 
-### `npm test`
+npm run dev-server
+Runs the front-end only on http://localhost:8080. Page will reload with edits.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+npm run build:dev
+Builds the app in developer mode (larger bundle.js but faster build time. Includes dev dependencies).
 
-### `npm run build`
+npm run build:prod
+Builds the app in production mode (smaller bundle.js but longer build time. Does not include dev dependencies).
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+About the App
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+React.js web application that utilizes the Webpack asset bundler, Redux, MongoDB.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Webpack is an asset bundler that allows us to execute a single javascript file (bundle.js) that includes all of the app dependencies, styles, and components. Rather than having an index.html that has to load multiple scripts and styles, it only has to load the bundle.
 
-### `npm run eject`
+Redux is a simple way to store the state of the application while keeping all the components loosely coupled. By using redux, the application doesn't have to pass properties around from component to component. Redux also allows the app to continue displaying information to the user even when connection is lost. Instead of making multiple queries to the database to retrieve expenses, the application only needs to make one and store the results in the redux "store".
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+MongoDB is the database service I chose to house all the application users and their expenses. I picked Mongoose because it allows for easy to understand schema validation/authentication and database queries. Upon logging in, the expenses are pulled from the particular user from the database and stored in the redux store.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
