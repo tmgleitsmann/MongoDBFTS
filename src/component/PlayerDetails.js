@@ -26,7 +26,7 @@ class PlayerDetails extends React.Component{
 
     render(){
         return(
-            <div className="card text-center">
+            <div className="card text-center" style={{"marginTop":"50px"}}>
                 <div className="card-body">
 
                     <div className="row text-center">
@@ -102,7 +102,7 @@ class PlayerDetails extends React.Component{
 
                     {this.props.location.state.Select == undefined ? 
                             <button style={{marginTop:"15px"}} type="submit" 
-                            className="btn btn-primary" 
+                            className="btn btn-success" 
                             onClick={this.playerSelect.bind(this, this.props.location.state)}>
                                 Add To Team
                             </button>
@@ -114,7 +114,7 @@ class PlayerDetails extends React.Component{
                                 <NavLink to="/build"><button type="submit" className="btn btn-primary">Back To Team</button></NavLink>
                             </div>
                             <div className="col-md-2">
-                                <button type="submit" onClick = {this.playerRemove.bind(this, this.props.location.state)} className="btn btn-primary">Remove From Team</button>
+                                <button type="submit" onClick = {this.playerRemove.bind(this, this.props.location.state)} className="btn btn-danger">Remove From Team</button>
                             </div>
                             <div className="col-md-4">
                             </div>
