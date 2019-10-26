@@ -55,21 +55,21 @@ class BuildTeam extends React.Component{
     render(){
         return(
             <div id = "landing-img">
-                <div className="row" style={{"paddingTop": "20px", "paddingBottom": "20px"}}>
+                <div className="row row-style" >
                     <div className="col-md-1" >
                         <div></div>
                     </div>
                     <div className="col-md-2">
                         {
                             this.props.players[8].Name.length < 1 ?
-                                <div className="card" onClick={this.assignPlayer.bind(this, 8)} 
-                                style={{"height":"146px", "backgroundColor":"#cccccc", "borderRadius":"3px", "boxShadow": "7px 7px 4px black"}}>
+                                <div className="card card-styling" onClick={this.assignPlayer.bind(this, 8)} 
+                                >
                                     <div className="row">
                                         <div className="col-md-4" >
                                             <div></div>
                                         </div>
-                                        <div className="col-md-3 text-center" style={{"textAlign":"left"}}>
-                                            <img src="../images/fifa-image-3.png" style={{"width":"51px", "height":"60px"}}/>
+                                        <div className="col-md-3 text-center playerDiv" >
+                                            <img src="../images/fifa-image-3.png" />
                                         </div>
                                         <div className="col-md-5" >
                                             <div></div>
@@ -91,13 +91,13 @@ class BuildTeam extends React.Component{
                     <div className="col-md-2">
                         {
                             this.props.players[9].Name.length < 1 ?
-                            <div className="card" onClick={this.assignPlayer.bind(this, 9)} style={{"height":"146px", "backgroundColor":"#cccccc", "borderRadius":"3px", "boxShadow": "7px 7px 4px black"}}>
+                            <div className="card card-styling" onClick={this.assignPlayer.bind(this, 9)} >
                                 <div className="row">
                                     <div className="col-md-4" >
                                         <div></div>
                                     </div>
-                                    <div className="col-md-3 text-center" style={{"textAlign":"left"}}>
-                                        <img src="../images/fifa-image-3.png" style={{"width":"51px", "height":"60px"}}/>
+                                    <div className="col-md-3 text-center playerDiv" >
+                                        <img src="../images/fifa-image-3.png" />
                                     </div>
                                     <div className="col-md-5" >
                                         <div></div>
@@ -119,13 +119,13 @@ class BuildTeam extends React.Component{
                     <div className="col-md-2">
                         {
                             this.props.players[10].Name.length < 1 ?
-                            <div className="card" onClick={this.assignPlayer.bind(this, 10)} style={{"height":"146px", "backgroundColor":"#cccccc", "borderRadius":"3px", "boxShadow": "7px 7px 4px black"}}>
+                            <div className="card card-styling" onClick={this.assignPlayer.bind(this, 10)} >
                                 <div className="row">
                                     <div className="col-md-4" >
                                         <div></div>
                                     </div>
-                                    <div className="col-md-3 text-center" style={{"textAlign":"left"}}>
-                                        <img src="../images/fifa-image-3.png" style={{"width":"51px", "height":"60px"}}/>
+                                    <div className="col-md-3 text-center playerDiv" >
+                                        <img src="../images/fifa-image-3.png" />
                                     </div>
                                     <div className="col-md-5" >
                                         <div></div>
@@ -145,20 +145,20 @@ class BuildTeam extends React.Component{
                         <div></div>
                     </div>
                 </div>
-                <div className="row" style={{"paddingTop": "20px", "paddingBottom": "20px"}}>
+                <div className="row row-style" >
                     <div className="col-md-2" >
                         <div></div>
                     </div>
                     <div className="col-md-2">
                         {
                             this.props.players[5].Name.length < 1 ?
-                            <div className="card" onClick={this.assignPlayer.bind(this, 5)} style={{"height":"146px", "backgroundColor":"#cccccc", "borderRadius":"3px", "boxShadow": "7px 7px 4px black"}}>
+                            <div className="card card-styling" onClick={this.assignPlayer.bind(this, 5)} >
                                 <div className="row">
                                     <div className="col-md-4" >
                                         <div></div>
                                     </div>
-                                    <div className="col-md-3 text-center" style={{"textAlign":"left"}}>
-                                        <img src="../images/fifa-image-3.png" style={{"width":"51px", "height":"60px"}}/>
+                                    <div className="col-md-3 text-center playerDiv" >
+                                        <img src="../images/fifa-image-3.png" />
                                     </div>
                                     <div className="col-md-5" >
                                         <div></div>
@@ -180,13 +180,13 @@ class BuildTeam extends React.Component{
                     <div className="col-md-2">
                         {
                             this.props.players[6].Name.length < 1 ?
-                            <div className="card" onClick={this.assignPlayer.bind(this, 6)} style={{"height":"146px", "backgroundColor":"#cccccc", "borderRadius":"3px", "boxShadow": "7px 7px 4px black"}}>
+                            <div className="card card-styling" onClick={this.assignPlayer.bind(this, 6)} >
                                 <div className="row">
                                     <div className="col-md-4" >
                                         <div></div>
                                     </div>
-                                    <div className="col-md-3 text-center" style={{"textAlign":"left"}}>
-                                        <img src="../images/fifa-image-3.png" style={{"width":"51px", "height":"60px"}}/>
+                                    <div className="col-md-3 text-center playerDiv" >
+                                        <img src="../images/fifa-image-3.png" />
                                     </div>
                                     <div className="col-md-5" >
                                         <div></div>
@@ -208,13 +208,13 @@ class BuildTeam extends React.Component{
                     <div className="col-md-2">
                         {
                             this.props.players[7].Name.length < 1 ?
-                            <div className="card" onClick={this.assignPlayer.bind(this, 7)} style={{"height":"146px", "backgroundColor":"#cccccc", "borderRadius":"3px", "boxShadow": "7px 7px 4px black"}}>
+                            <div className="card card-styling" onClick={this.assignPlayer.bind(this, 7)} >
                                 <div className="row">
                                     <div className="col-md-4" >
                                         <div></div>
                                     </div>
-                                    <div className="col-md-3 text-center" style={{"textAlign":"left"}}>
-                                        <img src="../images/fifa-image-3.png" style={{"width":"51px", "height":"60px"}}/>
+                                    <div className="col-md-3 text-center playerDiv" >
+                                        <img src="../images/fifa-image-3.png" />
                                     </div>
                                     <div className="col-md-5" >
                                         <div></div>
@@ -234,17 +234,17 @@ class BuildTeam extends React.Component{
                         <div></div>
                     </div>
                 </div>
-                <div className="row justify-content-center" style={{"paddingTop": "20px", "paddingBottom": "20px"}}>
+                <div className="row row-style justify-content-center" >
                 <div className="col-md-2">
                 {
                     this.props.players[1].Name.length < 1 ?
-                    <div className="card" onClick={this.assignPlayer.bind(this, 1)} style={{"height":"146px", "backgroundColor":"#cccccc", "borderRadius":"3px", "boxShadow": "7px 7px 4px black"}}>
+                    <div className="card card-styling" onClick={this.assignPlayer.bind(this, 1)} >
                         <div className="row">
                             <div className="col-md-4" >
                                 <div></div>
                             </div>
-                            <div className="col-md-3 text-center" style={{"textAlign":"left"}}>
-                                <img src="../images/fifa-image-3.png" style={{"width":"51px", "height":"60px"}}/>
+                            <div className="col-md-3 text-center playerDiv" >
+                                <img src="../images/fifa-image-3.png" />
                             </div>
                             <div className="col-md-5" >
                                 <div></div>
@@ -266,13 +266,13 @@ class BuildTeam extends React.Component{
                     <div className="col-md-2">
                         {
                             this.props.players[2].Name.length < 1 ?
-                            <div className="card" onClick={this.assignPlayer.bind(this, 2)} style={{"height":"146px", "backgroundColor":"#cccccc", "borderRadius":"3px", "boxShadow": "7px 7px 4px black"}}>
+                            <div className="card card-styling" onClick={this.assignPlayer.bind(this, 2)} >
                                 <div className="row">
                                     <div className="col-md-4" >
                                         <div></div>
                                     </div>
-                                    <div className="col-md-3 text-center" style={{"textAlign":"left"}}>
-                                        <img src="../images/fifa-image-3.png" style={{"width":"51px", "height":"60px"}}/>
+                                    <div className="col-md-3 text-center playerDiv" >
+                                        <img src="../images/fifa-image-3.png" />
                                     </div>
                                     <div className="col-md-5" >
                                         <div></div>
@@ -294,13 +294,13 @@ class BuildTeam extends React.Component{
                     <div className="col-md-2">
                         {
                             this.props.players[3].Name.length < 1 ?
-                            <div className="card" onClick={this.assignPlayer.bind(this, 3)} style={{"height":"146px", "backgroundColor":"#cccccc", "borderRadius":"3px", "boxShadow": "7px 7px 4px black"}}>
+                            <div className="card card-styling" onClick={this.assignPlayer.bind(this, 3)} >
                                 <div className="row">
                                     <div className="col-md-4" >
                                         <div></div>
                                     </div>
-                                    <div className="col-md-3 text-center" style={{"textAlign":"left"}}>
-                                        <img src="../images/fifa-image-3.png" style={{"width":"51px", "height":"60px"}}/>
+                                    <div className="col-md-3 text-center playerDiv" >
+                                        <img src="../images/fifa-image-3.png" />
                                     </div>
                                     <div className="col-md-5" >
                                         <div></div>
@@ -322,13 +322,13 @@ class BuildTeam extends React.Component{
                     <div className="col-md-2">
                         {
                             this.props.players[4].Name.length < 1 ?
-                            <div className="card" onClick={this.assignPlayer.bind(this, 4)} style={{"height":"146px", "backgroundColor":"#cccccc", "borderRadius":"3px", "boxShadow": "7px 7px 4px black"}}>
+                            <div className="card card-styling" onClick={this.assignPlayer.bind(this, 4)} >
                                 <div className="row">
                                     <div className="col-md-4" >
                                         <div></div>
                                     </div>
-                                    <div className="col-md-3 text-center" style={{"textAlign":"left"}}>
-                                        <img src="../images/fifa-image-3.png" style={{"width":"51px", "height":"60px"}}/>
+                                    <div className="col-md-3 text-center playerDiv" >
+                                        <img src="../images/fifa-image-3.png"/>
                                     </div>
                                     <div className="col-md-5" >
                                         <div></div>
@@ -345,20 +345,20 @@ class BuildTeam extends React.Component{
                         }
                     </div>
                 </div>
-                <div className="row" style={{"paddingTop": "20px", "paddingBottom": "20px"}}>
+                <div className="row row-style" >
                     <div className="col-md-5" >
                         <div></div>
                     </div>
                     <div className="col-md-2">
                         {
                             this.props.players[0].Name.length < 1 ?
-                            <div className="card" onClick={this.assignPlayer.bind(this, 0)} style={{"height":"146px", "backgroundColor":"#cccccc", "borderRadius":"3px", "boxShadow": "7px 7px 4px black"}}>
+                            <div className="card card-styling" onClick={this.assignPlayer.bind(this, 0)} >
                                 <div className="row">
                                     <div className="col-md-4" >
                                         <div></div>
                                     </div>
-                                    <div className="col-md-3 text-center" style={{"textAlign":"left"}}>
-                                        <img src="../images/fifa-image-3.png" style={{"width":"51px", "height":"60px"}}/>
+                                    <div className="col-md-3 text-center playerDiv">
+                                        <img src="../images/fifa-image-3.png" />
                                     </div>
                                     <div className="col-md-5" >
                                         <div></div>
