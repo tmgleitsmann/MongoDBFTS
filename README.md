@@ -30,6 +30,5 @@ Webpack is an asset bundler that allows us to execute a single javascript file (
 
 Redux is a simple way to store the state of the application while keeping all the components loosely coupled. By using redux, the application doesn't have to pass properties around from component to component. Redux also allows the app to continue displaying information to the user even when connection is lost. Instead of making multiple queries to the database to retrieve expenses, the application only needs to make one and store the results in the redux "store".
 
-MongoDB is the database service I chose to house all the application users and their expenses. I picked Mongoose because it allows for easy to understand schema validation/authentication and database queries. Upon logging in, the expenses are pulled from the particular user from the database and stored in the redux store.
-
+Backend is maintained by a MongoDB Atlas Cluster and is hosted by MongoDB Stitch service. This allows for all of my backend to be hosted on the cloud with none of my API calls having to exist in the React application itself. All that is needed on the frontend side are the API URLs. 
 
