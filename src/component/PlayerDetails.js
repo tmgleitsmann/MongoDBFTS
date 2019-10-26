@@ -49,7 +49,7 @@ class PlayerDetails extends React.Component{
                     </div>
 
 
-                    <div className="row text-center" style={{marginTop:"15px"}}>
+                    <div className="row text-center detail-row" >
                         <div className="col-md-4"></div>
                         <div className="col-md-1">
                                 <h6 className="text-muted card-subtitle mb-2">Position: {this.props.location.state.Position}</h6>
@@ -66,7 +66,7 @@ class PlayerDetails extends React.Component{
                         <div className="col-md-4"></div>
                     </div>
 
-                    <div className="row text-center" style={{marginTop:"15px"}}>
+                    <div className="row text-center detail-row" >
                         <div className="col-md-4"></div>
                         <div className="col-md-1">
                                 <h6 className="text-muted card-subtitle mb-2">Speed: {this.props.location.state.SprintSpeed.$numberInt}</h6>
@@ -83,7 +83,7 @@ class PlayerDetails extends React.Component{
                         <div className="col-md-4"></div>
                     </div>
 
-                    <div className="row text-center" style={{marginTop:"15px"}}>
+                    <div className="row text-center detail-row" >
                         <div className="col-md-4"></div>
                         <div className="col-md-1">
                                 <h6 className="text-muted card-subtitle mb-2">Wage: {this.props.location.state.Wage}</h6>
@@ -107,7 +107,7 @@ class PlayerDetails extends React.Component{
                                 Add To Team
                             </button>
                         :
-                        <div className="row text-center" style={{marginTop:"15px"}}>
+                        <div className="row text-center detail-row" >
                             <div className="col-md-4">
                             </div>
                             <div className="col-md-2">
