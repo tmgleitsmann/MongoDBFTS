@@ -6,9 +6,9 @@ import { connect } from 'react-redux';
 class PlayerDetails extends React.Component{
     constructor(props){
         super(props);
-        console.log(this);
     }
 
+    //Redirect to build page with player object. 
     playerSelect = (player) => {
         this.props.history.push(
                 `/build`,
@@ -16,6 +16,11 @@ class PlayerDetails extends React.Component{
         );
     }
 
+    /*
+        Remove the player from our Redux state.
+        Have our select state set to undefined (for render()).
+        Redirect to build page.
+    */
     playerRemove = (player) => {
         this.props.removePlayer(player);
         this.props.location.state.Select = undefined;
@@ -23,6 +28,7 @@ class PlayerDetails extends React.Component{
             '/build'
         );
     }
+
 
     render(){
         return(
@@ -132,10 +138,7 @@ class PlayerDetails extends React.Component{
     }
 }
 
-//export default PlayerDetails;
-
 const mapDispatchToProps = (dispatch) => {
-    /* playerSearch will be an object */
     return{
         removePlayer: (Name) => dispatch(removePlayer(Name)),
         resetAttributes: () => dispatch(resetAttributes())

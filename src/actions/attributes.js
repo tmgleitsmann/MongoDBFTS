@@ -10,6 +10,7 @@ export const modifyAttributes = (playerName='', searchType='', attributes={}) =>
     let nationSelect = '';
     let nationExclude = '';
     let positionSelect = '';
+    let salarySelect = '';
 
     if(attributes.nationExclude.length > 0){
         nationExclude = `&natex=${attributes.nationExclude}`;
@@ -26,11 +27,14 @@ export const modifyAttributes = (playerName='', searchType='', attributes={}) =>
     if(attributes.position.length > 0){
         positionSelect = `&pos=${attributes.position}`;
     }
+    if(attributes.minSalary > 1){
+        salarySelect = `&sal=${attributes.minSalary}`;
+    }
     
     return(dispatch) => {
         if(searchType=='Autocomplete'){
             return axios
-            .get(`${autocompleteApiUrl}?arg=${playerName}${minimumOverall}${nationSelect}${nationExclude}${positionSelect}`)
+            .get(`${autocompleteApiUrl}?arg=${playerName}${minimumOverall}${nationSelect}${nationExclude}${positionSelect}${salarySelect}`)
             .then((req) => {
                 const playerPayload = [];
                 req.data.forEach((player) =>{
@@ -45,7 +49,6 @@ export const modifyAttributes = (playerName='', searchType='', attributes={}) =>
             .get(`${fuzzyApiUrl}?arg=${playerName}${minimumOverall}${nationSelect}${nationExclude}${positionSelect}`)
             .then((req) => {
                 const playerPayload = [];
-                console.log(req);
                 req.data.forEach((player) =>{
                     playerPayload.push(player)
                 })
@@ -54,7 +57,6 @@ export const modifyAttributes = (playerName='', searchType='', attributes={}) =>
             .catch((res) => {return Promise.reject(res);});
         }
         else{
-            console.log(`${wildcardApiUrl}?arg=${playerName}`);
             return axios
             .get(`${wildcardApiUrl}?arg=${playerName}${minimumOverall}${nationSelect}${nationExclude}${positionSelect}`)
             .then((req) => {

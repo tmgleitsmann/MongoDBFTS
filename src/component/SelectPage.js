@@ -14,6 +14,7 @@ class SelectPage extends React.Component{
         //create a reference to our child component (will be defined in render())
         this.AttributesList = React.createRef();
 
+        //3 Text states for our 3 input boxes plus a querySent state for our "no players" fifa image.
         this.state = {
             autocompleteText:"",
             fuzzymatchText:"",
@@ -22,6 +23,18 @@ class SelectPage extends React.Component{
         }
     }
     
+    //setting our state change code in one area so we can call on it from multiple functions. 
+    setAutocompleteTextState = (text) =>{
+        this.setState( () => ({ autocompleteText:text}))
+    } 
+    setFuzzymatchTextState = (text) =>{
+        this.setState( () => ({ fuzzymatchText:text}))
+    } 
+    setWildcardTextState = (text) =>{
+        this.setState( () => ({ wildcardText:text}))
+    } 
+
+    //modifies the state depending on which input box has been changed.
     onTextChange = (value, e) => {
         const text = e.target.value;
         if(value == "Autocomplete"){
@@ -35,64 +48,55 @@ class SelectPage extends React.Component{
             this.setWildcardTextState(text);
         }
     }
-    
 
-    setAutocompleteTextState = (text) =>{
-        this.setState( () => ({ autocompleteText:text}))
-    } 
-    setFuzzymatchTextState = (text) =>{
-        this.setState( () => ({ fuzzymatchText:text}))
-
-    } 
-    setWildcardTextState = (text) =>{
-        this.setState( () => ({ wildcardText:text}))
-    } 
 
     onSubmit = (value, e) => {
+        //prevent page refresh
         e.preventDefault();
+        //reset the application state attributes. (NOT PLAYERS)
         this.props.resetAttributes;
-        //determine whether autocomplete, fuzzymatching or wildcard is desired search.
-        //Persist state in redux before querying MongoDB & Redirecting page. 
+
+        /*
+            Determine whether autocomplete, fuzzymatching or wildcard is desired serach.
+            Persist the state in redux before querying MongoDB & redirecting the page.
+            Set querySent to true. If no results found we will display "no-available-players.jpg".
+        */
         this.setState( () => ({ querySent:true }));
         if(value == "Autocomplete" && this.state.autocompleteText.length > 0){
-            
-            if(playerNameState != this.state.autocompleteText && playerNameState.length > this.state.autocompleteText.length){
-                /* CHANGE THE STATE OF THE AUTOCOMPLETETEXT TO SHOW UPDATED NAME */
 
+            /*
+                if autosuggested name (from script) is not the same as our typed autocompleted input 
+                AND if autocompleted input is shorter than the autosuggested name (from script), update autocompleted input.
+            */
+            if(playerNameState != this.state.autocompleteText && playerNameState.length > this.state.autocompleteText.length){
                 this.setState({autocompleteText: playerNameState}, function () {
                     this.props.modifyAttributes(this.state.autocompleteText, value, this.AttributesList.current.state); 
                 });
             }
             else{
-                //query DB with our state (Redux) *Action*
+                //no need to modify state first. Query MongoDB w/ our Redux State.
                 this.props.modifyAttributes(this.state.autocompleteText, value, this.AttributesList.current.state);
             }
         }
         else if(value == "Fuzzy" && this.state.fuzzymatchText.length > 0){
-            //query DB with our state (Redux) *Action*
+            //no need to modify state first. Query MongoDB w/ our Redux State.
             this.props.modifyAttributes(this.state.fuzzymatchText, value, this.AttributesList.current.state);
         }
         else if(value == "Wildcard" && this.state.wildcardText.length > 0){
-            //query DB with our state (Redux) *Action*
+            //no need to modify state first. Query MongoDB w/ our Redux State.
             this.props.modifyAttributes(this.state.wildcardText, value, this.AttributesList.current.state);
         }
         else{/* Do Nothing */}
+
         playerNameState = '';
     };
 
+    //Reset the app. Can modify to reset just the page in the future. 
     onReset = () => {
-        // console.log('in reset');
-        // this.setState=( () => ({
-        //     autocompleteText:"",
-        //     fuzzymatchText:"",
-        //     wildcardText:"",
-        //     querySent:false
-        // }));
-
-        // this.props.resetAttributes;
         location.reload();
     }
 
+    //Redirect to player page with player object. 
     playerSelect = (player) => {
         this.props.history.push(
                 `/player/${player.Name}`,
@@ -109,7 +113,6 @@ class SelectPage extends React.Component{
                     </div>
                     <div className="col-md-9">
                         <div className="jumbotron p-0" id="jumboStyle">
-
                             <h1 id="searchTitle"> Find Your Baller</h1>
                             <form onSubmit={this.onSubmit.bind(this, "Autocomplete")} style={{"marginLeft":"2.4rem", "marginRight":"2.4rem"}}>
                                 <input className="form-control form-control-lg" 
@@ -118,22 +121,16 @@ class SelectPage extends React.Component{
                                 placeholder="Autocomplete" 
                                 id="autocompleteInput" onKeyDown={(e)=>{if(e.keyCode === 13){ this.onSubmit("Autocomplete", e)}}}>
                                 </input>
-                                {/*<button type="submit" className="btn btn-primary">Submit</button>*/}
                             </form>
                             <br />
                             <form onSubmit={this.onSubmit.bind(this, "Fuzzy")} style={{"marginLeft":"2.4rem", "marginRight":"2.4rem"}}>
                                 <input className="form-control form-control-lg" onChange={this.onTextChange.bind(this, "Fuzzy")} type="text" autoComplete="off" placeholder="Fuzzy"></input>
-                                {/*<button type="submit" className="btn btn-primary">Submit</button>*/}
                             </form>
                             <br />
                             <form onSubmit={this.onSubmit.bind(this, "Wildcard")} style={{"marginLeft":"2.4rem", "marginRight":"2.4rem"}}>
                                 <input className="form-control form-control-lg" onChange={this.onTextChange.bind(this, "Wildcard")} type="text" autoComplete="off" placeholder="Wildcard"></input>
-                                {/*<button type="submit" className="btn btn-primary">Submit</button>*/}
                             </form>
                             <br />
-                            {/*<form onSubmit={this.onReset.bind(this)}>
-                                <button type="submit" className="btn btn-primary"></button>
-                            </form>*/}
                             <div onClick={this.onReset.bind(this)} style={{"textAlign":"right"}}>
                                 <img style={{"maxWidth":"10%", "maxHeight":"10%"}} src="../images/nationality.png"/>
                             </div>
@@ -168,5 +165,3 @@ const mapStateToProps = (state, props) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SelectPage);
-
-//export default SelectPage;

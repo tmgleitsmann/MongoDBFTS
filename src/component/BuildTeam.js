@@ -7,13 +7,26 @@ import {updateTeam} from '../actions/players';
 class BuildTeam extends React.Component{
     constructor(props){
         super(props);
+        /*
+            props.location.state may be undefined or set to a player object 
+            depending on how the BuildTeam component was called. 
+        */
         this.state = {
             replacePlayer:props.location.state
         }
     }
 
-    playerSelect = (player, value) => {
+    /*  
+        if replacePlayer state is set to a player and player (passed in through event handler)
+        is NOT undefined, updateTeam in redux with the new player and set state of replacePlayer
+        to undefined.
 
+        else, set Select attribute of passed in player object to true. 
+            If player object exists, push to player details page with player object.
+            else do nothing.
+
+    */
+    playerSelect = (player, value) => {
         if(this.state.replacePlayer && player != undefined){
             const updatePlayer = this.state.replacePlayer;
             this.props.updateTeam(updatePlayer, value);
@@ -30,14 +43,11 @@ class BuildTeam extends React.Component{
                 );
             }
             else{
-                console.log('player undefined');
+                /*Do nothing*/
             }
         }
     }
 
-    checkState = () =>{
-        console.log(this);
-    }
 
     assignPlayer = (value) => {
         if(this.state.replacePlayer){

@@ -9,23 +9,14 @@ class Attributes extends React.Component{
         super(props);
 
         this.state={
+            filterToggle:false,
+            minSalary:1,
+            maxSalary:700000,
             minOverall:1,
             maxOverall:99,
             nation:'',
             nationExclude:'',
             position:''
-            // minPace:1,
-            // maxPace:99,
-            // minShooting:1,
-            // maxShooting:99,
-            // minPassing:1,
-            // maxPassing:99,
-            // minDribbling:1,
-            // maxDribbling:99,
-            // minDefending:1,
-            // maxDefending:99,
-            // minPhysical:1,
-            // maxPhysical:99
         };
     }
 
@@ -44,6 +35,13 @@ class Attributes extends React.Component{
         }
     }
 
+    onToggleFilters = (e) => {
+        const currToggle = this.state.filterToggle;
+        this.setState({
+            filterToggle:!currToggle
+        });
+    }
+
     onPositionSelect = (value) => {
         this.setState({
             position:value
@@ -57,216 +55,169 @@ class Attributes extends React.Component{
                 maxOverall:value[1]
               });
         }
-        // else if(attr == "Pace"){
-        //     this.setState({
-        //         minPace:value[0],
-        //         maxPace:value[1]
-        //       });
-        // }
-        // else if(attr == "Shooting"){
-        //     this.setState({
-        //         minShooting:value[0],
-        //         maxShooting:value[1]
-        //       });
-        // }
-        // else if(attr == "Passing"){
-        //     this.setState({
-        //         minPassing:value[0],
-        //         maxPassing:value[1]
-        //       });
-        // }
-        // else if(attr == "Dribbling"){
-        //     this.setState({
-        //         minDribbling:value[0],
-        //         maxDribbling:value[1]
-        //       });
-        // }
-        // else if(attr == "Defending"){
-        //     this.setState({
-        //         minDefending:value[0],
-        //         maxDefending:value[1]
-        //       });
-        // }
-        // else{
-        //     this.setState({
-        //         minPhysical:value[0],
-        //         maxPhysical:value[1]
-        //       });
-        // }
+        else if(attr == "Salary"){
+            this.setState({
+                minSalary:value[0],
+                maxSalary:value[1]
+            });
+        }
+        else{}
       }
 
 
       render(){
           return(
             <div>
-                <form>
-                    <div>
-                        <label>Overall Range: {this.state.minOverall} - {this.state.maxOverall}</label>
-                        <Range
-                            min={1} 
-                            max={99} 
-                            step={1} 
-                            defaultValue={[this.state.minOverall, this.state.maxOverall]} 
-                            value={[this.state.minOverall, this.state.maxOverall]} 
-                            onChange={this.onSliderChange.bind(this, "Overall")}
-                        />
+                {this.state.filterToggle == true ?
+                    <div className = "side-filters">
+                    <div className = "side-filters">
+                        <button type="button" className="btn btn-outline-secondary" onClick={this.onToggleFilters.bind(this)}>Toggle Filters Off</button>
                     </div>
-                    {/*
-                    <div>
-                        <label>Pace Range: {this.state.minPace} - {this.state.maxPace}</label>
-                        <Range
-                            min={1} 
-                            max={99} 
-                            step={1} 
-                            defaultValue={[this.state.minPace, this.state.maxPace]} 
-                            value={[this.state.minPace, this.state.maxPace]} 
-                            onChange={this.onSliderChange.bind(this, "Pace")}
-                        />
-                    </div>
-                    
-                    <div>
-                        <label>Shooting Range: {this.state.minShooting} - {this.state.maxShooting}</label>
-                        <Range 
-                            min={1} 
-                            max={99} 
-                            step={1} 
-                            defaultValue={[this.state.minShooting, this.state.maxShooting]} 
-                            value={[this.state.minShooting, this.state.maxShooting]} 
-                            onChange={this.onSliderChange.bind(this, "Shooting")}
-                        />
-                    </div>
+                        <form>
+                            <div>
+                                <label>Overall Range: {this.state.minOverall} - {this.state.maxOverall}</label>
+                                <Range
+                                    min={1} 
+                                    max={99} 
+                                    step={1} 
+                                    defaultValue={[this.state.minOverall, this.state.maxOverall]} 
+                                    value={[this.state.minOverall, this.state.maxOverall]} 
+                                    onChange={this.onSliderChange.bind(this, "Overall")}
+                                />
+                            </div>
+                        </form>
+                        <br />
+                        <form>
+                            <div>
+                                <label>Salary Range: €{this.state.minSalary} - €{this.state.maxSalary}</label>
+                                <Range
+                                    min={1} 
+                                    max={700000} 
+                                    step={1} 
+                                    defaultValue={[this.state.minSalary, this.state.maxSalary]} 
+                                    value={[this.state.minSalary, this.state.maxSalary]} 
+                                    onChange={this.onSliderChange.bind(this, "Salary")}
+                                />
+                            </div>
+                        </form>
+                        <br />
+                        <div>
 
-                    <div>
-                        <label>Passing Range: {this.state.minPassing} - {this.state.maxPassing}</label>
-                        <Range 
-                            min={1} 
-                            max={99} 
-                            step={1} 
-                            defaultValue={[this.state.minPassing, this.state.maxPassing]} 
-                            value={[this.state.minPassing, this.state.maxPassing]} 
-                            onChange={this.onSliderChange.bind(this, "Passing")}
-                        />
-                    </div>
-                    
-                    <div>
-                        <label>Dribbling Range: {this.state.minDribbling} - {this.state.maxDribbling}</label>
-                        <Range 
-                            min={1} 
-                            max={99} 
-                            step={1} 
-                            defaultValue={[this.state.minDribbling, this.state.maxDribbling]} 
-                            value={[this.state.minDribbling, this.state.maxDribbling]} 
-                            onChange={this.onSliderChange.bind(this, "Dribbling")}
-                        />
-                    </div>
-                
-                    <div>
-                        <label>Defending Range: {this.state.minDefending} - {this.state.maxDefending}</label>
-                        <Range 
-                            min={1} 
-                            max={99} 
-                            step={1} 
-                            defaultValue={[this.state.minDefending, this.state.maxDefending]} 
-                            value={[this.state.minDefending, this.state.maxDefending]} 
-                            onChange={this.onSliderChange.bind(this, "Defending")}
-                        />
-                    </div>
-                    
-                    <div>
-                        <label>Physicality Range: {this.state.minPhysical} - {this.state.maxPhysical}</label>
-                        <Range 
-                            min={1} 
-                            max={99} 
-                            step={1} 
-                            defaultValue={[this.state.minPhysical, this.state.maxPhysical]} 
-                            value={[this.state.minPhysical, this.state.maxPhysical]} 
-                            onChange={this.onSliderChange.bind(this, "Physical")}
-                        />
-                    </div>/
-                    */}
-                </form>
-                <br />
-                <div className="dropdown">
-                    <button className="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {this.state.nation.length < 1 ? 'Include' : `${this.state.nation}`}
-                    </button>
-                    <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a className="dropdown-item" onClick={this.onNationSelect.bind(this, "Germany", "Include")}>Germany</a>
-                        <a className="dropdown-item" onClick={this.onNationSelect.bind(this, "Belgium", "Include")}>Belgium</a>
-                        <a className="dropdown-item" onClick={this.onNationSelect.bind(this, "France", "Include")}>France</a>
-                        <a className="dropdown-item" onClick={this.onNationSelect.bind(this, "Italy", "Include")}>Italy</a>
-                        <a className="dropdown-item" onClick={this.onNationSelect.bind(this, "Spain", "Include")}>Spain</a>
-                        <a className="dropdown-item" onClick={this.onNationSelect.bind(this, "England", "Include")}>England</a>
-                        <a className="dropdown-item" onClick={this.onNationSelect.bind(this, "Netherlands", "Include")}>Netherlands</a>
-                        <a className="dropdown-item" onClick={this.onNationSelect.bind(this, "Portugal", "Include")}>Portugal</a>
-                        <a className="dropdown-item" onClick={this.onNationSelect.bind(this, "Brazil", "Include")}>Brazil</a>
-                        <a className="dropdown-item" onClick={this.onNationSelect.bind(this, "Colombia", "Include")}>Colombia</a>
-                        <a className="dropdown-item" onClick={this.onNationSelect.bind(this, "Argentina", "Include")}>Argentina</a>
-                        <a className="dropdown-item" onClick={this.onNationSelect.bind(this, "Mexico", "Include")}>Mexico</a>
-                        <a className="dropdown-item" onClick={this.onNationSelect.bind(this, "United States", "Include")}>United States</a>
-                    </div>
-                </div>
 
-                <br />
-                <div className="dropdown">
-                    <button className="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {this.state.nationExclude.length < 1 ? 'Exclude' : `${this.state.nationExclude}`}
-                    </button>
-                    <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a className="dropdown-item" onClick={this.onNationSelect.bind(this, "Germany", "Exclude")}>Germany</a>
-                        <a className="dropdown-item" onClick={this.onNationSelect.bind(this, "Belgium", "Exclude")}>Belgium</a>
-                        <a className="dropdown-item" onClick={this.onNationSelect.bind(this, "France", "Exclude")}>France</a>
-                        <a className="dropdown-item" onClick={this.onNationSelect.bind(this, "Italy", "Exclude")}>Italy</a>
-                        <a className="dropdown-item" onClick={this.onNationSelect.bind(this, "Spain", "Exclude")}>Spain</a>
-                        <a className="dropdown-item" onClick={this.onNationSelect.bind(this, "England", "Exclude")}>England</a>
-                        <a className="dropdown-item" onClick={this.onNationSelect.bind(this, "Netherlands", "Exclude")}>Netherlands</a>
-                        <a className="dropdown-item" onClick={this.onNationSelect.bind(this, "Portugal", "Exclude")}>Portugal</a>
-                        <a className="dropdown-item" onClick={this.onNationSelect.bind(this, "Brazil", "Exclude")}>Brazil</a>
-                        <a className="dropdown-item" onClick={this.onNationSelect.bind(this, "Colombia", "Exclude")}>Colombia</a>
-                        <a className="dropdown-item" onClick={this.onNationSelect.bind(this, "Argentina", "Exclude")}>Argentina</a>
-                        <a className="dropdown-item" onClick={this.onNationSelect.bind(this, "Mexico", "Exclude")}>Mexico</a>
-                        <a className="dropdown-item" onClick={this.onNationSelect.bind(this, "United States", "Exclude")}>United States</a>
+                        <div className="dropdown">
+                            <button className="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">
+                            {this.state.nation.length < 1 ? 'Include' : `${this.state.nation}`}
+                            <span className="caret"></span></button>
+                            <ul className="dropdown-menu">
+                                <li className="dropdown-header">Europe</li> 
+                                    <li><a className="dropdown-item" role="presentation" onClick={this.onNationSelect.bind(this, "Germany", "Include")}>Germany</a></li>
+                                    <li><a className="dropdown-item" role="presentation" onClick={this.onNationSelect.bind(this, "Belgium", "Include")}>Belgium</a></li>
+                                    <li><a className="dropdown-item" role="presentation" onClick={this.onNationSelect.bind(this, "France", "Include")}>France</a></li>
+                                    <li><a className="dropdown-item" role="presentation" onClick={this.onNationSelect.bind(this, "Italy", "Include")}>Italy</a></li>
+                                    <li><a className="dropdown-item" role="presentation" onClick={this.onNationSelect.bind(this, "Spain", "Include")}>Spain</a></li>
+                                    <li><a className="dropdown-item" role="presentation" onClick={this.onNationSelect.bind(this, "England", "Include")}>England</a></li>
+                                    <li><a className="dropdown-item" role="presentation" onClick={this.onNationSelect.bind(this, "Netherlands", "Include")}>Netherlands</a></li>
+                                    <li><a className="dropdown-item" role="presentation" onClick={this.onNationSelect.bind(this, "Portugal", "Include")}>Portugal</a></li>
+                                <li className="dropdown-header">South America</li>
+                                    <li><a className="dropdown-item" role="presentation" onClick={this.onNationSelect.bind(this, "Brazil", "Include")}>Brazil</a></li>
+                                    <li><a className="dropdown-item" role="presentation" onClick={this.onNationSelect.bind(this, "Colombia", "Include")}>Colombia</a></li>
+                                    <li><a className="dropdown-item" role="presentation" onClick={this.onNationSelect.bind(this, "Argentina", "Include")}>Argentina</a></li>
+                                <li className="dropdown-header">North America</li>
+                                    <li><a className="dropdown-item" role="presentation" onClick={this.onNationSelect.bind(this, "Mexico", "Include")}>Mexico</a></li>
+                                    <li><a className="dropdown-item" role="presentation" onClick={this.onNationSelect.bind(this, "United States", "Include")}>United States</a></li>
+                                    <li><a className="dropdown-item" role="presentation" onClick={this.onNationSelect.bind(this, "Canada", "Include")}>Canada</a></li>
+                                <li className="dropdown-header">Africa</li>
+                                    <li><a className="dropdown-item" role="presentation" onClick={this.onNationSelect.bind(this, "Algeria", "Include")}>Algeria</a></li>
+                                    <li><a className="dropdown-item" role="presentation" onClick={this.onNationSelect.bind(this, "Morocco", "Include")}>Morocco</a></li>
+                                    <li><a className="dropdown-item" role="presentation" onClick={this.onNationSelect.bind(this, "Ghana", "Include")}>Ghana</a></li>
+                                    <li><a className="dropdown-item" role="presentation" onClick={this.onNationSelect.bind(this, "Nigeria", "Include")}>Nigeria</a></li>
+                                    <li><a className="dropdown-item" role="presentation" onClick={this.onNationSelect.bind(this, "Senegal", "Include")}>Senegal</a></li>
+                                    <li><a className="dropdown-item" role="presentation" onClick={this.onNationSelect.bind(this, "Cameroon", "Include")}>Cameroon</a></li>
+                            </ul>
+                        </div>
+
+                        <br />
+
+                        <div className="dropdown">
+                            <button className="btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown">
+                            {this.state.nationExclude.length < 1 ? 'Exclude' : `${this.state.nationExclude}`}
+                            <span className="caret"></span></button>
+                            <ul className="dropdown-menu">
+                                <li className="dropdown-header">Europe</li> 
+                                    <li><a className="dropdown-item" role="presentation" onClick={this.onNationSelect.bind(this, "Germany", "Exclude")}>Germany</a></li>
+                                    <li><a className="dropdown-item" role="presentation" onClick={this.onNationSelect.bind(this, "Belgium", "Exclude")}>Belgium</a></li>
+                                    <li><a className="dropdown-item" role="presentation" onClick={this.onNationSelect.bind(this, "France", "Exclude")}>France</a></li>
+                                    <li><a className="dropdown-item" role="presentation" onClick={this.onNationSelect.bind(this, "Italy", "Exclude")}>Italy</a></li>
+                                    <li><a className="dropdown-item" role="presentation" onClick={this.onNationSelect.bind(this, "Spain", "Exclude")}>Spain</a></li>
+                                    <li><a className="dropdown-item" role="presentation" onClick={this.onNationSelect.bind(this, "England", "Exclude")}>England</a></li>
+                                    <li><a className="dropdown-item" role="presentation" onClick={this.onNationSelect.bind(this, "Netherlands", "Exclude")}>Netherlands</a></li>
+                                    <li><a className="dropdown-item" role="presentation" onClick={this.onNationSelect.bind(this, "Portugal", "Exclude")}>Portugal</a></li>
+                                <li className="dropdown-header">South America</li>
+                                    <li><a className="dropdown-item" role="presentation" onClick={this.onNationSelect.bind(this, "Brazil", "Exclude")}>Brazil</a></li>
+                                    <li><a className="dropdown-item" role="presentation" onClick={this.onNationSelect.bind(this, "Colombia", "Exclude")}>Colombia</a></li>
+                                    <li><a className="dropdown-item" role="presentation" onClick={this.onNationSelect.bind(this, "Argentina", "Exclude")}>Argentina</a></li>
+                                <li className="dropdown-header">North America</li>
+                                    <li><a className="dropdown-item" role="presentation" onClick={this.onNationSelect.bind(this, "Mexico", "Exclude")}>Mexico</a></li>
+                                    <li><a className="dropdown-item" role="presentation" onClick={this.onNationSelect.bind(this, "United States", "Exclude")}>United States</a></li>
+                                    <li><a className="dropdown-item" role="presentation" onClick={this.onNationSelect.bind(this, "Canada", "Exclude")}>Canada</a></li>
+                                <li className="dropdown-header">Africa</li>
+                                    <li><a className="dropdown-item" role="presentation" onClick={this.onNationSelect.bind(this, "Algeria", "Exclude")}>Algeria</a></li>
+                                    <li><a className="dropdown-item" role="presentation" onClick={this.onNationSelect.bind(this, "Morocco", "Exclude")}>Morocco</a></li>
+                                    <li><a className="dropdown-item" role="presentation" onClick={this.onNationSelect.bind(this, "Ghana", "Exclude")}>Ghana</a></li>
+                                    <li><a className="dropdown-item" role="presentation" onClick={this.onNationSelect.bind(this, "Nigeria", "Exclude")}>Nigeria</a></li>
+                                    <li><a className="dropdown-item" role="presentation" onClick={this.onNationSelect.bind(this, "Senegal", "Exclude")}>Senegal</a></li>
+                                    <li><a className="dropdown-item" role="presentation" onClick={this.onNationSelect.bind(this, "Cameroon", "Exclude")}>Cameroon</a></li>
+                            </ul>
+                        </div>
+
+                        <br />
+
+                        <div className="dropdown">
+                            <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                                {this.state.position.length < 1 ? 'Positions' : `${this.state.position}`}
+                            </button>
+                            <ul className="dropdown-menu">
+                            <li className="dropdown-header">Forwards</li>
+                                <li><a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "ST")}>ST</a></li>
+                                <li><a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "RS")}>RS</a></li>
+                                <li><a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "LS")}>LS</a></li>
+                                <li><a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "RW")}>RW</a></li>
+                                <li><a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "LW")}>LW</a></li>
+                                <li><a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "RF")}>RF</a></li>
+                                <li><a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "LF")}>LF</a></li>
+                                
+                            <li className="dropdown-header">Midfielders</li>
+                                <li><a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "RM")}>RM</a></li>
+                                <li><a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "LM")}>LM</a></li>
+                                <li><a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "CAM")}>CAM</a></li>
+                                <li><a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "CM")}>CM</a></li>
+                                <li><a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "RCM")}>RCM</a></li>
+                                <li><a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "LCM")}>LCM</a></li>
+                                <li><a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "CDM")}>CDM</a></li>
+                                <li><a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "LDM")}>LDM</a></li>
+                                <li><a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "RDM")}>RDM</a></li>
+                            <li className="dropdown-header">Defenders</li>
+                                <li><a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "LWB")}>LWB</a></li>
+                                <li><a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "RWB")}>RWB</a></li>
+                                <li><a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "LB")}>LB</a></li>
+                                <li><a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "RB")}>RB</a></li>
+                                <li><a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "LCB")}>LCB</a></li>
+                                <li><a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "RCB")}>RCB</a></li>
+                                <li><a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "CB")}>CB</a></li>
+                                <li><a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "GK")}>GK</a></li>
+                            </ul>
+                        </div>
+                            <br />
+                            <div>
+                                <img style={{"maxWidth":"75%", "maxHeight":"75%"}} src="../images/mbappe.png" />
+                            </div>
+                        </div>
                     </div>
-                </div>
-
-                <br />
-                <div className="dropdown">
-                    <button className="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {this.state.position.length < 1 ? 'Positions' : `${this.state.position}`}
-                    </button>
-                    <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "ST")}>ST</a>
-                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "RS")}>RS</a>
-                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "LS")}>LS</a>
-                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "RW")}>RW</a>
-                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "LW")}>LW</a>
-                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "RF")}>RF</a>
-                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "LF")}>LF</a>
-                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "RM")}>RM</a>
-                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "LM")}>LM</a>
-                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "CAM")}>CAM</a>
-                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "CM")}>CM</a>
-                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "RCM")}>RCM</a>
-                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "LCM")}>LCM</a>
-                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "CDM")}>CDM</a>
-                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "LDM")}>LDM</a>
-                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "RDM")}>RDM</a>
-                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "LWB")}>LWB</a>
-                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "RWB")}>RWB</a>
-                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "LB")}>LB</a>
-                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "RB")}>RB</a>
-                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "LCB")}>LCB</a>
-                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "RCB")}>RCB</a>
-                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "CB")}>CB</a>
-                        <a className="dropdown-item" onClick={this.onPositionSelect.bind(this, "GK")}>GK</a>
+                :
+                    <div className = "side-filters">
+                        <button type="button" className="btn btn-outline-secondary" onClick={this.onToggleFilters.bind(this)}>Toggle Filters On</button>
                     </div>
-                </div>
-
-                <br />
-                <div>
-                    <img style={{"maxWidth":"75%", "maxHeight":"75%"}} src="../images/mbappe.png" />
-                </div>
-
+                }
             </div>
           );
       }
