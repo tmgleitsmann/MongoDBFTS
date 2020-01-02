@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Card from './Card';
 import update from 'react-addons-update';
-import {updateTeam} from '../actions/players';
+import {updateTeam, removePlayer} from '../actions/players';
 
 class BuildTeam extends React.Component{
     constructor(props){
@@ -26,11 +26,12 @@ class BuildTeam extends React.Component{
             else do nothing.
 
     */
-    playerSelect = (player, value) => {
+    playerSelect = async (player, value) => {
         if(this.state.replacePlayer && player != undefined){
             const updatePlayer = this.state.replacePlayer;
-            this.props.updateTeam(updatePlayer, value);
-            this.setState({
+            await this.props.removePlayer(player);
+            await this.props.updateTeam(updatePlayer, value);
+            await this.setState({
                 replacePlayer:undefined
             });
         }
@@ -47,13 +48,11 @@ class BuildTeam extends React.Component{
             }
         }
     }
-
-
-    assignPlayer = (value) => {
+    assignPlayer = async (value) => {
         if(this.state.replacePlayer){
             const updatePlayer = this.state.replacePlayer;
-            this.props.updateTeam(updatePlayer, value);
-            this.setState({
+            await this.props.updateTeam(updatePlayer, value);
+            await this.setState({
                 replacePlayer:undefined
             });
         }
@@ -399,6 +398,7 @@ const mapDispatchToProps = (dispatch) => {
     /* playerSearch will be an object */
     return{
         updateTeam: (player, value) => dispatch(updateTeam(player, value)),
+        removePlayer: (Name) => dispatch(removePlayer(Name))
     };
 };
 const mapStateToProps = (state, props) => {

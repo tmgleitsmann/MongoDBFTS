@@ -71,7 +71,7 @@ class Attributes extends React.Component{
                 {this.state.filterToggle == true ?
                     <div className = "side-filters">
                     <div className = "side-filters">
-                        <button type="button" className="btn btn-outline-secondary" onClick={this.onToggleFilters.bind(this)}>Toggle Filters Off</button>
+                        <button type="button" className="btn btn-outline-secondary" onClick={this.onToggleFilters.bind(this)}>Toggle Facets</button>
                     </div>
                         <form>
                             <div>
@@ -215,7 +215,7 @@ class Attributes extends React.Component{
                     </div>
                 :
                     <div className = "side-filters">
-                        <button type="button" className="btn btn-outline-secondary" onClick={this.onToggleFilters.bind(this)}>Toggle Filters On</button>
+                        <button type="button" className="btn btn-outline-secondary" onClick={this.onToggleFilters.bind(this)}>Toggle Facets</button>
                     </div>
                 }
             </div>

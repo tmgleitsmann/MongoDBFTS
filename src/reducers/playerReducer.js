@@ -1,5 +1,6 @@
 const DEFAULT_OBJ = { 
     Name:'', 
+    ID: '-1',
     Overall:undefined, 
     Jersey:undefined, 
     Club:undefined,
@@ -32,7 +33,7 @@ export default (state = DEFAULT_STATE, action) => {
             
         case 'REMOVE_PLAYER':
             state.forEach( (player, index) => {
-                if(player.Name == action.Name){ 
+                if(player.ID == action.ID){ 
                     state[index] = DEFAULT_OBJ;
                 }
             });

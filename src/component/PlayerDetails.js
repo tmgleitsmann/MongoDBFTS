@@ -21,8 +21,8 @@ class PlayerDetails extends React.Component{
         Have our select state set to undefined (for render()).
         Redirect to build page.
     */
-    playerRemove = (player) => {
-        this.props.removePlayer(player);
+    playerRemove = async (player) => {
+        await this.props.removePlayer(player);
         this.props.location.state.Select = undefined;
         this.props.history.push(
             '/build'
